@@ -3,18 +3,20 @@ package com.example.ewang.helloworld;
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         t.setTextSize(50);
                     t.setTextColor(Color.RED);
                 }
+                Toast.makeText(m, "This is a toast!", Toast.LENGTH_SHORT).show();
                 Log.v("HelloWorld", "Changed text properties!");
             }
         });
@@ -107,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
             alert.setTitle("About");
             alert.setPositiveButton("OK", null);
             alert.create().show();
+            return true;
+        }
+
+        if (id == R.id.action_counter) {
+            Intent intent = new Intent(this, CounterActivity.class);
+            startActivity(intent);
             return true;
         }
 
